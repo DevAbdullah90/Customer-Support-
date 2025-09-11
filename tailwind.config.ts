@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+const plugin = require("tailwindcss/plugin"); // Import the plugin function
 
 const config: Config = {
   content: [
@@ -69,16 +70,33 @@ const config: Config = {
             "background-position": "0% 50%",
           },
         },
+        // ADDED: Keyframes for the testimonial marquee
+        "marquee": {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
       },
       animation: {
         "fade-in-down": "fade-in-down 0.8s ease-out forwards",
         "fade-in-up": "fade-in-up 0.8s ease-out forwards",
         "gradient": "gradient-animation 15s ease infinite",
+        // ADDED: Animation utility for the testimonial marquee
+        "marquee-normal": "marquee 30s linear infinite",
+        "marquee-slow": "marquee 60s linear infinite",
       },
     },
   },
   plugins: [
     require("tailwindcss-animate"),
+    // ADDED: Plugin for the 3D orbit animation in the CTA section
+    plugin(function({ addUtilities }: { addUtilities: any }) {
+      addUtilities({
+        ".offset-path-none": { "offset-path": "none" },
+        // You can use arbitrary values directly in your JSX now, e.g., `[offset-path:path(...)]`
+        // but this sets up the utility if you need it.
+      });
+    }),
+    // Your existing custom plugin for animation delays
     function ({ addUtilities }: { addUtilities: any }) {
       const newUtilities = {
         ".animation-delay-200": {

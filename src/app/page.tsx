@@ -1,26 +1,31 @@
-import CTA from '@/components/CTA'
-import DashboardShowcase from '@/components/DashboardShowcase'
-import Features from '@/components/Features'
 import Hero from '@/components/Hero'
-import SalesAndListings from '@/components/SalesAndListings'
-import PageWrapper from '@/components/shared/ui/PageWarpper'
-import React from 'react'
+import ProductShowcase from '@/components/ProductShowcase'
+import Features from '@/components/Features'
+import CustomerSupport from '@/components/CustomerSupport'
+// import Testimonials from '@/components/Testimonial'
+import Pricing from '@/components/Pricing'
+import CTA from '@/components/CTA'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import LiveChat from '@/components/LiveChat'
+import React from 'react'
+import TechStack from '@/components/TechStack'
 
 const page = () => {
   return (
-    // <PageWrapper>
-     <div> 
+    <div className="min-h-screen bg-white">
       <Header />
       <Hero />
       <Features />
-      <DashboardShowcase />
-      <SalesAndListings />
+      <ProductShowcase />
+      <CustomerSupport />
+      <TechStack />
+      {/* <Testimonials /> */}
+      <Pricing />
       <CTA />
       <Footer />
-          {/* </PageWrapper> */}
-     </div> 
+      <LiveChat />
+    </div>
   )
 }
 
